@@ -18,16 +18,24 @@ def readFile(filename):
 
 
 def writeJson(artist, album, filename, data):
-	with open('../' + artist + '/' + album + '/' + filename + '.json', 'w') as outfile:
+	directory = '../' + artist + '/' + album + '/' + filename + '.json'
+	if not os.path.exists(os.path.dirname(directory)):
+	    try:
+	        os.makedirs(os.path.dirname(directory))
+	    except OSError as exc: # Guard against race condition
+	        if exc.errno != errno.EEXIST:
+	            raise
+	with open(directory, 'w') as outfile:
 		json.dump(data, outfile)
 	return 
+
 
 def getUnique(lines):
 	uniqueSet = set([])
 	for line in lines:
 		newSet = set(line)
 		uniqueSet = uniqueSet | newSet
-	return (uniqueSet, len(uniqueSet))
+	return (len(uniqueSet), list(uniqueSet))
 
 
 def processData():
@@ -37,7 +45,7 @@ def processData():
 		if filename.endswith(".txt") or filename.endswith(".txt"):
 			artist, album, lyrics = readFile(directory + filename)
 			songDict["Unique"] = getUnique(lyrics)
-	    	writeJson(artist, album, filename.strip(".txt"), songDict)
+	    		writeJson(artist, album, filename.strip(".txt"), songDict)
 
 def main():
 	processData()
