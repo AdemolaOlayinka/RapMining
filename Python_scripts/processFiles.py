@@ -9,6 +9,4 @@ def readFile(filename):
 		line = line.strip()
 		lines.append(line)
 	return lines
-
-
-print readFile("../ListOfArtists.txt")
+ 
