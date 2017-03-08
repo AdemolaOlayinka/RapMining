@@ -4,7 +4,7 @@ Created by Jordan Burton, 03/07/2017
 import os
 import json
 
-totalData = {}
+totalData = []
 
 
 def readFile(filename):
@@ -14,10 +14,10 @@ def readFile(filename):
 		line = line.strip().split()
 		lines.append(line)
 	file.close()
-	return " ".join(lines[0]), "_".join(lines[1]), lines[2:]
+	return "_".join(lines[0]), "_".join(lines[1]), lines[2:]
 
 
-def writeJson(artist, album, filename, data):
+def writeJsonSong(artist, album, filename, data):
 	directory = '../' + artist + '/' + album + '/' + filename + '.json'
 	if not os.path.exists(os.path.dirname(directory)):
 	    try:
@@ -29,14 +29,24 @@ def writeJson(artist, album, filename, data):
 		json.dump(data, outfile)
 	return 
 
+def writeJsonTotal(data):
+	directory = "../overall_data/data.json"
+	with open(directory, 'w') as outfile:
+		json.dump(data, outfile)
+	return
 
 def getUnique(lines):
 	uniqueSet = set([])
 	for line in lines:
-		newSet = set(line)
+		newSet = set(" ".join(line).strip("!").strip("?").strip("(").strip(")").strip(".").split())
 		uniqueSet = uniqueSet | newSet
 	return (len(uniqueSet), list(uniqueSet))
 
+def joinLyrics(lyrics):
+	joined = ""
+	for line in lyrics:
+		joined += " ".join(line) + "\n"
+	return joined
 
 def processData():
 	directory = "../txt_files/"
@@ -44,8 +54,13 @@ def processData():
 		songDict = {}
 		if filename.endswith(".txt") or filename.endswith(".txt"):
 			artist, album, lyrics = readFile(directory + filename)
-			songDict["Unique"] = getUnique(lyrics)
-	    		writeJson(artist, album, filename.strip(".txt"), songDict)
+			songDict["song_title"] = filename.strip(".txt")
+			songDict["lyrics"] = joinLyrics(lyrics)
+			songDict['album'] = album
+			songDict["unique_words"] = getUnique(lyrics)
+	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
+	    	totalData.append(songDict)
+	writeJsonTotal(totalData)
 
 def main():
 	processData()
