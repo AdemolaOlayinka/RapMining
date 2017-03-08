@@ -38,9 +38,23 @@ def writeJsonTotal(data):
 def getUnique(lines):
 	uniqueSet = set([])
 	for line in lines:
-		newSet = set(" ".join(line).strip("!").strip("?").strip("(").strip(")").strip(".").split())
+		newSet = set(" ".join(line).replace("\n", " ").replace("!", "").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "").split())
 		uniqueSet = uniqueSet | newSet
 	return (len(uniqueSet), list(uniqueSet))
+
+
+def countEachWord(lyrics):
+	lyrics = joinLyrics(lyrics)
+	my_lyrics = lyrics.replace("!", "").replace("\n", " ").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "")
+	my_lyrics = my_lyrics.split()
+	total = len(my_lyrics)
+	my_word_counts = {}
+	for word in my_lyrics:
+		if(word not in my_word_counts):
+			my_word_counts[word] = 0
+		my_word_counts[word] += 1
+	return (total, my_word_counts) 
+
 
 def joinLyrics(lyrics):
 	joined = ""
@@ -58,6 +72,7 @@ def processData():
 			songDict["lyrics"] = joinLyrics(lyrics)
 			songDict['album'] = album
 			songDict["unique_words"] = getUnique(lyrics)
+			songDict["total_words"] = countEachWord(lyrics)
 	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
 	    	totalData.append(songDict)
 	writeJsonTotal(totalData)
