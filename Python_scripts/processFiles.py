@@ -19,7 +19,8 @@ def readFile(filename):
 	year = ""
 	lyrics = []
 	try:
-		year = int(lines[2])
+
+		year = int("".join(lines[2]))
 		lyrics = lines[3:]
 	except:
 		lyrics = lines[2:]
