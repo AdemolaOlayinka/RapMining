@@ -74,7 +74,8 @@ def processData():
 			songDict["unique_words"] = getUnique(lyrics)
 			songDict["total_words"] = countEachWord(lyrics)
 	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
-	    	totalData.append(songDict)
+	    	if(songDict):
+	    		totalData.append(songDict)
 	writeJsonTotal(totalData)
 
 def main():
