@@ -14,11 +14,21 @@ def readFile(filename):
 		line = line.strip().split()
 		lines.append(line)
 	file.close()
-	return "_".join(lines[0]), "_".join(lines[1]), lines[2:]
+	artist = "_".join(lines[0])
+	album =  "_".join(lines[1])
+	year = ""
+	lyrics = []
+	try:
+		year = int(lines[2])
+		lyrics = lines[3:]
+	except:
+		lyrics = lines[2:]
+	
+	return artist, album, year, lyrics
 
 
 def writeJsonSong(artist, album, filename, data):
-	directory = '../' + artist + '/' + album + '/' + filename + '.json'
+	directory = '../' + artist + '/' + album + '/' + getSongTitle(filename) + '.json'
 	if not os.path.exists(os.path.dirname(directory)):
 	    try:
 	        os.makedirs(os.path.dirname(directory))
@@ -26,13 +36,13 @@ def writeJsonSong(artist, album, filename, data):
 	        if exc.errno != errno.EEXIST:
 	            raise
 	with open(directory, 'w') as outfile:
-		json.dump(data, outfile)
+		json.dump(data, outfile, indent=4, sort_keys=True)
 	return 
 
 def writeJsonTotal(data):
 	directory = "../overall_data/data.json"
 	with open(directory, 'w') as outfile:
-		json.dump(data, outfile)
+		json.dump(data, outfile, indent=4, sort_keys=True)
 	return
 
 def getUnique(lines):
@@ -62,15 +72,22 @@ def joinLyrics(lyrics):
 		joined += " ".join(line) + "\n"
 	return joined
 
+def getSongTitle(name):
+	filename = name.strip(".txt").split("-")
+	name = filename[1]
+	name = name.strip()
+	return name
+
 def processData():
 	directory = "../txt_files/"
 	for filename in os.listdir(directory):
 		songDict = {}
 		if filename.endswith(".txt") or filename.endswith(".txt"):
-			artist, album, lyrics = readFile(directory + filename)
-			songDict["song_title"] = filename.strip(".txt")
+			artist, album, year, lyrics = readFile(directory + filename)
+			songDict["song_title"] = getSongTitle(filename)
 			songDict["lyrics"] = joinLyrics(lyrics)
 			songDict['album'] = album
+			songDict['year'] = year
 			songDict["unique_words"] = getUnique(lyrics)
 			songDict["total_words"] = countEachWord(lyrics)
 	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
