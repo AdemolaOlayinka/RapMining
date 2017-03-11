@@ -8,14 +8,27 @@ import requests
 import time
 import re
 import os, sys
+import random
 
 BEGINNING_URL = "http://www.azlyrics.com/"
-headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20100101 Firefox/38.0' }
+headers = { 'User-Agent': 'Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11' }
 toSaveBeginning = "../txt_files/"
+
+users = []
+
+def getUsers():
+	f = open('fakeUserList.txt', 'r')
+	for line in f:
+		line = line.strip()
+		users.append(line)
+
+def makeRandomUser():
+	fakeUser = random.choice(users)
+	return {'User-Agent': fakeUser}
 
 
 def writeToFile(artistName, songName, albumName, lyrics, year):
-	fileName = artistName + " - " + songName + ".txt"
+	fileName = songName + ".txt"
 	fileName = fileName.replace('/', '')
 	file = open(toSaveBeginning + fileName, 'w')
 	file.write(artistName)
@@ -29,7 +42,7 @@ def writeToFile(artistName, songName, albumName, lyrics, year):
 
 def getLyrics(songURL):
 	
-	songPage = requests.get(songURL, headers=headers)
+	songPage = requests.get(songURL, headers=makeRandomUser())
 	tree = html.fromstring(songPage.content)
 	lyrics = tree.xpath('//div[not(@id) and not(@class)]/text()')
 	# print lyrics
@@ -43,7 +56,7 @@ def getAlbums(artistName):
 
 	fullURL = "http://people.duke.edu/~aoo12/datamining/EMINEMlyrics.html"
 
-	artistPage = requests.get(fullURL, headers=headers)
+	artistPage = requests.get(fullURL, headers=makeRandomUser())
 	htmlString = artistPage.content
 	albumList = htmlString.split('<div class="album">')[1:-1]
 
@@ -60,7 +73,7 @@ def getAlbums(artistName):
 			songLyrics = getLyrics(songURL)
 			writeToFile(artistName, songName, albumName, songLyrics, albumYear)
 			print "Wrote song", songName
-			time.sleep(2)
+			time.sleep(4)
 
 		print
 		print
@@ -72,6 +85,7 @@ def getAlbums(artistName):
 
 def main():
 	# artistName = raw_input("AZ Name")
+	getUsers()
 	getAlbums('Eminem')
 	return
 
