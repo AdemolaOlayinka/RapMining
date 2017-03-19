@@ -13,8 +13,10 @@ import random
 BEGINNING_URL = "http://www.azlyrics.com/"
 headers = { 'User-Agent': 'Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11' }
 toSaveBeginning = "../txt_files/"
+proxyList = ['165.234.102.177:8080'] #, '123.30.238.16:3128', '97.77.104.22:80', '63.150.152.151:8080'] #'87.242.77.197:8080', '97.77.104.22:3128']
 
 users = []
+i = 0
 
 def getUsers():
 	f = open('fakeUserList.txt', 'r')
@@ -26,9 +28,15 @@ def makeRandomUser():
 	fakeUser = random.choice(users)
 	return {'User-Agent': fakeUser}
 
+def getRandomProxy():
+	global i
+	fakeProxy = proxyList[i%len(proxyList)]
+	i += 1
+	return {'http': fakeProxy}
+
 
 def writeToFile(artistName, songName, albumName, lyrics, year):
-	fileName = songName + ".txt"
+	fileName = artistName + ' ' + albumName + ' ' + songName + ".txt"
 	fileName = fileName.replace('/', '')
 	file = open(toSaveBeginning + fileName, 'w')
 	file.write(artistName)
@@ -42,9 +50,11 @@ def writeToFile(artistName, songName, albumName, lyrics, year):
 
 def getLyrics(songURL):
 	
-	songPage = requests.get(songURL, headers=makeRandomUser())
+	songPage = requests.get(songURL, headers=makeRandomUser(), proxies=getRandomProxy())
+	# print songPage.content
 	tree = html.fromstring(songPage.content)
 	lyrics = tree.xpath('//div[not(@id) and not(@class)]/text()')
+	
 	# print lyrics
 	return u''.join(lyrics).encode('utf-8').strip()
 
@@ -71,9 +81,11 @@ def getAlbums(artistName):
 			songURL = y.split('"')[1]
 			songName = re.sub(r'<.*?>', '', y)
 			songLyrics = getLyrics(songURL)
+			#print "LYRICS"
+			#print songLyrics
 			writeToFile(artistName, songName, albumName, songLyrics, albumYear)
 			print "Wrote song", songName
-			time.sleep(4)
+			time.sleep(60)
 
 		print
 		print
