@@ -89,6 +89,21 @@ def getSongTitle(name, album, artist):
 	filename= filename.strip()
 	return filename
 
+def getNGrams(lyrics):
+	stringLyrics = joinLyrics(lyrics)
+	stringLyrics = stringLyrics.replace("!", "").replace("\n", " ").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "")
+	splitLyrics = stringLyrics.split()
+	grams = {}
+	for i in range(2, 9):
+		if i not in grams:
+			grams[i] = {}
+		for j in range(len(stringLyrics)-i):
+			phrase = " ".join(splitLyrics[j:j + i])
+			if phrase not in grams[i]:
+				grams[i][phrase] = 0
+			grams[i][phrase] += 1
+	return grams
+
 def processData():
 	directory = "../txt_files/"
 	for filename in os.listdir(directory):
@@ -101,8 +116,10 @@ def processData():
 			songDict['year'] = year
 			songDict["unique_words"] = getUnique(lyrics)
 			songDict["total_words"] = countEachWord(lyrics)
-	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
+	 
 	    		writeLyrics(artist, album, filename)
+	    		songDict["ngrams"] = getNGrams(lyrics)
+	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
 	    	if(songDict):
 	    		totalData.append(songDict)
 	writeJsonTotal(totalData)
