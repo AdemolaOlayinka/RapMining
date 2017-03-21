@@ -1,0 +1,24 @@
+{
+    "album": "The 2 Live Crew Is What We Are", 
+    "artist": "2 Live Crew", 
+    "lyrics": "", 
+    "ngrams": {
+        "2": {}, 
+        "3": {}, 
+        "4": {}, 
+        "5": {}, 
+        "6": {}, 
+        "7": {}, 
+        "8": {}
+    }, 
+    "song_title": "2 Live is What We Are (Word)", 
+    "total_words": [
+        0, 
+        {}
+    ], 
+    "unique_words": [
+        0, 
+        []
+    ], 
+    "year": 1986
+}

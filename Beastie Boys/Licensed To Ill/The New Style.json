@@ -1,0 +1,24 @@
+{
+    "album": "Licensed To Ill", 
+    "artist": "Beastie Boys", 
+    "lyrics": "", 
+    "ngrams": {
+        "2": {}, 
+        "3": {}, 
+        "4": {}, 
+        "5": {}, 
+        "6": {}, 
+        "7": {}, 
+        "8": {}
+    }, 
+    "song_title": "The New Style", 
+    "total_words": [
+        0, 
+        {}
+    ], 
+    "unique_words": [
+        0, 
+        []
+    ], 
+    "year": 1986
+}

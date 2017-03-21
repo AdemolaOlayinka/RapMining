@@ -20,8 +20,7 @@ def readFile(filename):
 	year = ""
 	lyrics = []
 	try:
-
-		year = int("".join(lines[2]))
+		year = int("".join(lines[2]).replace(")", ""))
 		lyrics = lines[3:]
 	except:
 		lyrics = lines[2:]
@@ -110,6 +109,7 @@ def processData():
 		songDict = {}
 		if filename.endswith(".txt") or filename.endswith(".txt"):
 			artist, album, year, lyrics = readFile(directory + filename)
+			songDict["artist"] = artist
 			songDict["song_title"] = getSongTitle(filename, album, artist)
 			songDict["lyrics"] = joinLyrics(lyrics)
 			songDict['album'] = album

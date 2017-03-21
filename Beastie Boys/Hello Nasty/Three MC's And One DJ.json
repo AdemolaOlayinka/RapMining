@@ -1,0 +1,24 @@
+{
+    "album": "Hello Nasty", 
+    "artist": "Beastie Boys", 
+    "lyrics": "", 
+    "ngrams": {
+        "2": {}, 
+        "3": {}, 
+        "4": {}, 
+        "5": {}, 
+        "6": {}, 
+        "7": {}, 
+        "8": {}
+    }, 
+    "song_title": "Three MC's And One DJ", 
+    "total_words": [
+        0, 
+        {}
+    ], 
+    "unique_words": [
+        0, 
+        []
+    ], 
+    "year": 1998
+}
