@@ -15,8 +15,8 @@ def readFile(filename):
 		line = line.strip().split()
 		lines.append(line)
 	file.close()
-	artist = "_".join(lines[0])
-	album =  "_".join(lines[1])
+	artist = " ".join(lines[0])
+	album =  " ".join(lines[1])
 	year = ""
 	lyrics = []
 	try:
@@ -30,7 +30,7 @@ def readFile(filename):
 
 
 def writeJsonSong(artist, album, filename, data):
-	directory = '../' + artist + '/' + album + '/' + getSongTitle(filename) + '.json'
+	directory = '../' + artist + '/' + album + '/' + getSongTitle(filename, album, artist) + '.json'
 	if not os.path.exists(os.path.dirname(directory)):
 	    try:
 	        os.makedirs(os.path.dirname(directory))
@@ -48,7 +48,7 @@ def writeJsonTotal(data):
 	return
 
 def writeLyrics(artist, album, filename):
-	directory = '../' + artist + '/' + album + '/' + filename
+	directory = '../' + artist + '/' + album + '/' + "lyrics/" + filename
 	if not os.path.exists(os.path.dirname(directory)):
 	    try:
 	        os.makedirs(os.path.dirname(directory))
@@ -84,11 +84,10 @@ def joinLyrics(lyrics):
 		joined += " ".join(line) + "\n"
 	return joined
 
-def getSongTitle(name):
-	filename = name.strip(".txt").split("-")
-	name = filename[1]
-	name = name.strip()
-	return name
+def getSongTitle(name, album, artist):
+	filename = name.strip(".txt").replace(artist + " " + album + " ", "", 1)
+	filename= filename.strip()
+	return filename
 
 def processData():
 	directory = "../txt_files/"
@@ -96,7 +95,7 @@ def processData():
 		songDict = {}
 		if filename.endswith(".txt") or filename.endswith(".txt"):
 			artist, album, year, lyrics = readFile(directory + filename)
-			songDict["song_title"] = getSongTitle(filename)
+			songDict["song_title"] = getSongTitle(filename, album, artist)
 			songDict["lyrics"] = joinLyrics(lyrics)
 			songDict['album'] = album
 			songDict['year'] = year
