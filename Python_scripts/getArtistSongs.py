@@ -15,7 +15,7 @@ import csv
 BEGINNING_URL = "http://www.azlyrics.com/"
 headers = { 'User-Agent': 'Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11' }
 toSaveBeginning = "../txt_files/"
-proxyList = ['12.129.82.194:8080', '218.191.247.51:8380', '207.188.73.155:80', '180.211.193.66:8080'] #['162.213.213.159:80', '72.159.158.210:3128', '35.167.66.19:3128', '184.175.106.139:80', '198.71.88.16:443'] #, '123.30.238.16:3128', '97.77.104.22:80', '63.150.152.151:8080'] #'87.242.77.197:8080', '97.77.104.22:3128']
+proxyList = ['12.129.82.194:8080'] #['162.213.213.159:80', '72.159.158.210:3128', '35.167.66.19:3128', '184.175.106.139:80', '198.71.88.16:443'] #, '123.30.238.16:3128', '97.77.104.22:80', '63.150.152.151:8080'] #'87.242.77.197:8080', '97.77.104.22:3128']
 
 users = []
 i = 0
@@ -104,7 +104,7 @@ def getAlbums(artistName, fullURL):
 		#print songLyrics
 		writeToFile(artistName, sName, aName, songLyrics, aYear)
 		print "Wrote song", songName
-		time.sleep(random.randint(6, 11))
+		time.sleep(random.randint(15, 23))
 
 	for x in albumList:
 		info = x.strip("album: ").split("\n")
