@@ -52,6 +52,14 @@ def writeToFile(artistName, songName, albumName, lyrics, year):
 	file.write(lyrics.strip().replace('\n\n', '\n'))
 	file.close()
 
+def bytes_to_int(bytes):
+    result = 0
+
+    for b in bytes:
+        result = result * 256 + int(b)
+
+    return result
+
 def getLyrics(songURL, artistURL):
 	
 	if songURL.startswith('..'):
@@ -115,9 +123,14 @@ def getAlbums(artistName, fullURL):
 			fileName = fileName.replace('/', '').replace('.', '')
 			fileName += '.txt'
 			fullName = toSaveBeginning + fileName
-			if os.path.exists(fullName):
-				print songName, "IS ALREADY SAVED"
-				continue
+			
+			try:
+				sizeOfFile = os.path.getsize(fullName)
+				if sizeOfFile > 100.0:
+					print songName, "IS AT SIZE", sizeOfFile
+					continue
+			except:
+				pass
 			#CLOSE THE PART WHICH ASKS FOR THIS
 
 			addSong(songURL, songName, albumName, albumYear)
