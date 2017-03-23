@@ -1,0 +1,139 @@
+{
+    "album": "Ill Communication", 
+    "artist": "Beastie Boys", 
+    "lyrics": "\"When Two Are Served, You May Begin To Eat\"\n\nGene Futterman\n", 
+    "ngrams": {
+        "2": {
+            "": 45, 
+            "Are Served,": 1, 
+            "Begin To": 1, 
+            "Eat Gene": 1, 
+            "Futterman": 1, 
+            "Gene Futterman": 1, 
+            "May Begin": 1, 
+            "Served, You": 1, 
+            "To Eat": 1, 
+            "Two Are": 1, 
+            "When Two": 1, 
+            "You May": 1
+        }, 
+        "3": {
+            "": 44, 
+            "Are Served, You": 1, 
+            "Begin To Eat": 1, 
+            "Eat Gene Futterman": 1, 
+            "Futterman": 1, 
+            "Gene Futterman": 1, 
+            "May Begin To": 1, 
+            "Served, You May": 1, 
+            "To Eat Gene": 1, 
+            "Two Are Served,": 1, 
+            "When Two Are": 1, 
+            "You May Begin": 1
+        }, 
+        "4": {
+            "": 43, 
+            "Are Served, You May": 1, 
+            "Begin To Eat Gene": 1, 
+            "Eat Gene Futterman": 1, 
+            "Futterman": 1, 
+            "Gene Futterman": 1, 
+            "May Begin To Eat": 1, 
+            "Served, You May Begin": 1, 
+            "To Eat Gene Futterman": 1, 
+            "Two Are Served, You": 1, 
+            "When Two Are Served,": 1, 
+            "You May Begin To": 1
+        }, 
+        "5": {
+            "": 42, 
+            "Are Served, You May Begin": 1, 
+            "Begin To Eat Gene Futterman": 1, 
+            "Eat Gene Futterman": 1, 
+            "Futterman": 1, 
+            "Gene Futterman": 1, 
+            "May Begin To Eat Gene": 1, 
+            "Served, You May Begin To": 1, 
+            "To Eat Gene Futterman": 1, 
+            "Two Are Served, You May": 1, 
+            "When Two Are Served, You": 1, 
+            "You May Begin To Eat": 1
+        }, 
+        "6": {
+            "": 41, 
+            "Are Served, You May Begin To": 1, 
+            "Begin To Eat Gene Futterman": 1, 
+            "Eat Gene Futterman": 1, 
+            "Futterman": 1, 
+            "Gene Futterman": 1, 
+            "May Begin To Eat Gene Futterman": 1, 
+            "Served, You May Begin To Eat": 1, 
+            "To Eat Gene Futterman": 1, 
+            "Two Are Served, You May Begin": 1, 
+            "When Two Are Served, You May": 1, 
+            "You May Begin To Eat Gene": 1
+        }, 
+        "7": {
+            "": 40, 
+            "Are Served, You May Begin To Eat": 1, 
+            "Begin To Eat Gene Futterman": 1, 
+            "Eat Gene Futterman": 1, 
+            "Futterman": 1, 
+            "Gene Futterman": 1, 
+            "May Begin To Eat Gene Futterman": 1, 
+            "Served, You May Begin To Eat Gene": 1, 
+            "To Eat Gene Futterman": 1, 
+            "Two Are Served, You May Begin To": 1, 
+            "When Two Are Served, You May Begin": 1, 
+            "You May Begin To Eat Gene Futterman": 1
+        }, 
+        "8": {
+            "": 39, 
+            "Are Served, You May Begin To Eat Gene": 1, 
+            "Begin To Eat Gene Futterman": 1, 
+            "Eat Gene Futterman": 1, 
+            "Futterman": 1, 
+            "Gene Futterman": 1, 
+            "May Begin To Eat Gene Futterman": 1, 
+            "Served, You May Begin To Eat Gene Futterman": 1, 
+            "To Eat Gene Futterman": 1, 
+            "Two Are Served, You May Begin To Eat": 1, 
+            "When Two Are Served, You May Begin To": 1, 
+            "You May Begin To Eat Gene Futterman": 1
+        }
+    }, 
+    "song_title": "Futterman's Rule", 
+    "total_words": [
+        11, 
+        {
+            "Are": 1, 
+            "Begin": 1, 
+            "Eat": 1, 
+            "Futterman": 1, 
+            "Gene": 1, 
+            "May": 1, 
+            "Served,": 1, 
+            "To": 1, 
+            "Two": 1, 
+            "When": 1, 
+            "You": 1
+        }
+    ], 
+    "unique_words": [
+        11, 
+        [
+            "Begin", 
+            "May", 
+            "When", 
+            "Two", 
+            "To", 
+            "Are", 
+            "Served,", 
+            "Futterman", 
+            "You", 
+            "Gene", 
+            "Eat"
+        ]
+    ], 
+    "year": 1994
+}

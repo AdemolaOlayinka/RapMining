@@ -1,0 +1,24 @@
+{
+    "album": "Midnight Marauders", 
+    "artist": "A Tribe Called Quest", 
+    "lyrics": "", 
+    "ngrams": {
+        "2": {}, 
+        "3": {}, 
+        "4": {}, 
+        "5": {}, 
+        "6": {}, 
+        "7": {}, 
+        "8": {}
+    }, 
+    "song_title": "Sucka Nigga", 
+    "total_words": [
+        0, 
+        {}
+    ], 
+    "unique_words": [
+        0, 
+        []
+    ], 
+    "year": 1993
+}

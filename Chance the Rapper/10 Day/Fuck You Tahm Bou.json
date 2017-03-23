@@ -1,0 +1,24 @@
+{
+    "album": "10 Day", 
+    "artist": "Chance the Rapper", 
+    "lyrics": "", 
+    "ngrams": {
+        "2": {}, 
+        "3": {}, 
+        "4": {}, 
+        "5": {}, 
+        "6": {}, 
+        "7": {}, 
+        "8": {}
+    }, 
+    "song_title": "Fuck You Tahm Bou", 
+    "total_words": [
+        0, 
+        {}
+    ], 
+    "unique_words": [
+        0, 
+        []
+    ], 
+    "year": 2012
+}
