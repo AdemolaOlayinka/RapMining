@@ -1,75 +1,75 @@
 {
     "album": "2001", 
     "artist": "Dr. Dre", 
-    "lyrics": "Hey Wat's Sup Nigga\n", 
+    "lyrics": "hey wat's sup nigga\n", 
     "ngrams": {
         "2": {
             "": 14, 
-            "Hey Wat's": 1, 
-            "Nigga": 1, 
-            "Sup Nigga": 1, 
-            "Wat's Sup": 1
+            "hey wat's": 1, 
+            "nigga": 1, 
+            "sup nigga": 1, 
+            "wat's sup": 1
         }, 
         "3": {
             "": 13, 
-            "Hey Wat's Sup": 1, 
-            "Nigga": 1, 
-            "Sup Nigga": 1, 
-            "Wat's Sup Nigga": 1
+            "hey wat's sup": 1, 
+            "nigga": 1, 
+            "sup nigga": 1, 
+            "wat's sup nigga": 1
         }, 
         "4": {
             "": 12, 
-            "Hey Wat's Sup Nigga": 1, 
-            "Nigga": 1, 
-            "Sup Nigga": 1, 
-            "Wat's Sup Nigga": 1
+            "hey wat's sup nigga": 1, 
+            "nigga": 1, 
+            "sup nigga": 1, 
+            "wat's sup nigga": 1
         }, 
         "5": {
             "": 11, 
-            "Hey Wat's Sup Nigga": 1, 
-            "Nigga": 1, 
-            "Sup Nigga": 1, 
-            "Wat's Sup Nigga": 1
+            "hey wat's sup nigga": 1, 
+            "nigga": 1, 
+            "sup nigga": 1, 
+            "wat's sup nigga": 1
         }, 
         "6": {
             "": 10, 
-            "Hey Wat's Sup Nigga": 1, 
-            "Nigga": 1, 
-            "Sup Nigga": 1, 
-            "Wat's Sup Nigga": 1
+            "hey wat's sup nigga": 1, 
+            "nigga": 1, 
+            "sup nigga": 1, 
+            "wat's sup nigga": 1
         }, 
         "7": {
             "": 9, 
-            "Hey Wat's Sup Nigga": 1, 
-            "Nigga": 1, 
-            "Sup Nigga": 1, 
-            "Wat's Sup Nigga": 1
+            "hey wat's sup nigga": 1, 
+            "nigga": 1, 
+            "sup nigga": 1, 
+            "wat's sup nigga": 1
         }, 
         "8": {
             "": 8, 
-            "Hey Wat's Sup Nigga": 1, 
-            "Nigga": 1, 
-            "Sup Nigga": 1, 
-            "Wat's Sup Nigga": 1
+            "hey wat's sup nigga": 1, 
+            "nigga": 1, 
+            "sup nigga": 1, 
+            "wat's sup nigga": 1
         }
     }, 
     "song_title": "Dr Dre 2001 Lolo (Intro)", 
     "total_words": [
         4, 
         {
-            "Hey": 1, 
-            "Nigga": 1, 
-            "Sup": 1, 
-            "Wat's": 1
+            "hey": 1, 
+            "nigga": 1, 
+            "sup": 1, 
+            "wat's": 1
         }
     ], 
     "unique_words": [
         4, 
         [
-            "Wat's", 
-            "Sup", 
-            "Hey", 
-            "Nigga"
+            "wat's", 
+            "nigga", 
+            "hey", 
+            "sup"
         ]
     ], 
     "year": 1999

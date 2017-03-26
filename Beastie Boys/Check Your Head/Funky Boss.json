@@ -1,93 +1,93 @@
 {
     "album": "Check Your Head", 
     "artist": "Beastie Boys", 
-    "lyrics": "Funky Boss Get Off My Back\n", 
+    "lyrics": "funky boss get off my back\n", 
     "ngrams": {
         "2": {
             "": 19, 
-            "Back": 1, 
-            "Boss Get": 1, 
-            "Funky Boss": 1, 
-            "Get Off": 1, 
-            "My Back": 1, 
-            "Off My": 1
+            "back": 1, 
+            "boss get": 1, 
+            "funky boss": 1, 
+            "get off": 1, 
+            "my back": 1, 
+            "off my": 1
         }, 
         "3": {
             "": 18, 
-            "Back": 1, 
-            "Boss Get Off": 1, 
-            "Funky Boss Get": 1, 
-            "Get Off My": 1, 
-            "My Back": 1, 
-            "Off My Back": 1
+            "back": 1, 
+            "boss get off": 1, 
+            "funky boss get": 1, 
+            "get off my": 1, 
+            "my back": 1, 
+            "off my back": 1
         }, 
         "4": {
             "": 17, 
-            "Back": 1, 
-            "Boss Get Off My": 1, 
-            "Funky Boss Get Off": 1, 
-            "Get Off My Back": 1, 
-            "My Back": 1, 
-            "Off My Back": 1
+            "back": 1, 
+            "boss get off my": 1, 
+            "funky boss get off": 1, 
+            "get off my back": 1, 
+            "my back": 1, 
+            "off my back": 1
         }, 
         "5": {
             "": 16, 
-            "Back": 1, 
-            "Boss Get Off My Back": 1, 
-            "Funky Boss Get Off My": 1, 
-            "Get Off My Back": 1, 
-            "My Back": 1, 
-            "Off My Back": 1
+            "back": 1, 
+            "boss get off my back": 1, 
+            "funky boss get off my": 1, 
+            "get off my back": 1, 
+            "my back": 1, 
+            "off my back": 1
         }, 
         "6": {
             "": 15, 
-            "Back": 1, 
-            "Boss Get Off My Back": 1, 
-            "Funky Boss Get Off My Back": 1, 
-            "Get Off My Back": 1, 
-            "My Back": 1, 
-            "Off My Back": 1
+            "back": 1, 
+            "boss get off my back": 1, 
+            "funky boss get off my back": 1, 
+            "get off my back": 1, 
+            "my back": 1, 
+            "off my back": 1
         }, 
         "7": {
             "": 14, 
-            "Back": 1, 
-            "Boss Get Off My Back": 1, 
-            "Funky Boss Get Off My Back": 1, 
-            "Get Off My Back": 1, 
-            "My Back": 1, 
-            "Off My Back": 1
+            "back": 1, 
+            "boss get off my back": 1, 
+            "funky boss get off my back": 1, 
+            "get off my back": 1, 
+            "my back": 1, 
+            "off my back": 1
         }, 
         "8": {
             "": 13, 
-            "Back": 1, 
-            "Boss Get Off My Back": 1, 
-            "Funky Boss Get Off My Back": 1, 
-            "Get Off My Back": 1, 
-            "My Back": 1, 
-            "Off My Back": 1
+            "back": 1, 
+            "boss get off my back": 1, 
+            "funky boss get off my back": 1, 
+            "get off my back": 1, 
+            "my back": 1, 
+            "off my back": 1
         }
     }, 
     "song_title": "Funky Boss", 
     "total_words": [
         6, 
         {
-            "Back": 1, 
-            "Boss": 1, 
-            "Funky": 1, 
-            "Get": 1, 
-            "My": 1, 
-            "Off": 1
+            "back": 1, 
+            "boss": 1, 
+            "funky": 1, 
+            "get": 1, 
+            "my": 1, 
+            "off": 1
         }
     ], 
     "unique_words": [
         6, 
         [
-            "Funky", 
-            "Off", 
-            "Get", 
-            "My", 
-            "Back", 
-            "Boss"
+            "funky", 
+            "off", 
+            "get", 
+            "my", 
+            "back", 
+            "boss"
         ]
     ], 
     "year": 1992
