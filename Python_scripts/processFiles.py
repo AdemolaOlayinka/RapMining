@@ -5,7 +5,8 @@ import os
 import json
 import shutil
 
-totalData = {"song":[]}
+totalData = []
+
 
 def readFile(filename):
 	file = open("../txt_files/" + filename)
@@ -20,7 +21,7 @@ def readFile(filename):
 	lyrics = []
 	try:
 
-		year = int("".join(lines[2]).replace(")", ""))
+		year = int("".join(lines[2]))
 		lyrics = lines[3:]
 	except:
 		lyrics = lines[2:]
@@ -42,12 +43,6 @@ def writeJsonSong(artist, album, filename, data):
 
 def writeJsonTotal(data):
 	directory = "../overall_data/data.json"
-	if not os.path.exists(os.path.dirname(directory)):
-	    try:
-	        os.makedirs(os.path.dirname(directory))
-	    except OSError as exc: # Guard against race condition
-	        if exc.errno != errno.EEXIST:
-	            raise
 	with open(directory, 'w') as outfile:
 		json.dump(data, outfile, indent=4, sort_keys=True)
 	return
@@ -65,7 +60,7 @@ def writeLyrics(artist, album, filename):
 def getUnique(lines):
 	uniqueSet = set([])
 	for line in lines:
-		newSet = set(" ".join(line).lower().replace("\n", " ").replace("!", "").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "").split())
+		newSet = set(" ".join(line).replace("\n", " ").replace("!", "").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "").split())
 		uniqueSet = uniqueSet | newSet
 	return (len(uniqueSet), list(uniqueSet))
 
@@ -86,7 +81,7 @@ def countEachWord(lyrics):
 def joinLyrics(lyrics):
 	joined = ""
 	for line in lyrics:
-		joined += " ".join(line).lower() + "\n"
+		joined += " ".join(line) + "\n"
 	return joined
 
 def getSongTitle(name, album, artist):
@@ -96,7 +91,7 @@ def getSongTitle(name, album, artist):
 
 def getNGrams(lyrics):
 	stringLyrics = joinLyrics(lyrics)
-	stringLyrics = stringLyrics.replace("!", "").replace("\n", " ").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "").replace(";", "")
+	stringLyrics = stringLyrics.replace("!", "").replace("\n", " ").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "")
 	splitLyrics = stringLyrics.split()
 	grams = {}
 	for i in range(2, 9):
@@ -121,12 +116,12 @@ def processData():
 			songDict['year'] = year
 			songDict["unique_words"] = getUnique(lyrics)
 			songDict["total_words"] = countEachWord(lyrics)
-	 		songDict["artist"] = artist
+	 
 	    		writeLyrics(artist, album, filename)
 	    		songDict["ngrams"] = getNGrams(lyrics)
 	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
 	    	if(songDict):
-	    		totalData["song"].append(songDict)
+	    		totalData.append(songDict)
 	writeJsonTotal(totalData)
 
 def main():
