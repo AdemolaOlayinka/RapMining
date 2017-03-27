@@ -12,7 +12,7 @@ def readFile(filename):
 	file = open("../txt_files/" + filename)
 	lines = []
 	for line in file:
-		line = line.strip().split()
+		line = line.strip().lower().split()
 		lines.append(line)
 	file.close()
 	artist = " ".join(lines[0])
@@ -20,8 +20,7 @@ def readFile(filename):
 	year = ""
 	lyrics = []
 	try:
-
-		year = int("".join(lines[2]))
+		year = int("".join(lines[2]).replace(")", ""))
 		lyrics = lines[3:]
 	except:
 		lyrics = lines[2:]
@@ -116,7 +115,7 @@ def processData():
 			songDict['year'] = year
 			songDict["unique_words"] = getUnique(lyrics)
 			songDict["total_words"] = countEachWord(lyrics)
-	 
+	 		songDict["artist"] = artist
 	    		writeLyrics(artist, album, filename)
 	    		songDict["ngrams"] = getNGrams(lyrics)
 	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
