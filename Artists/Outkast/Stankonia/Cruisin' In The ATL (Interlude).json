@@ -1,0 +1,83 @@
+{
+    "album": "Stankonia", 
+    "artist": "Outkast", 
+    "lyrics": "ATL\nCruisin' in the ATL\n...\n", 
+    "ngrams": {
+        "2": {
+            "": 18, 
+            "atl": 1, 
+            "atl cruisin'": 1, 
+            "cruisin' in": 1, 
+            "in the": 1, 
+            "the atl": 1
+        }, 
+        "3": {
+            "": 17, 
+            "atl": 1, 
+            "atl cruisin' in": 1, 
+            "cruisin' in the": 1, 
+            "in the atl": 1, 
+            "the atl": 1
+        }, 
+        "4": {
+            "": 16, 
+            "atl": 1, 
+            "atl cruisin' in the": 1, 
+            "cruisin' in the atl": 1, 
+            "in the atl": 1, 
+            "the atl": 1
+        }, 
+        "5": {
+            "": 15, 
+            "atl": 1, 
+            "atl cruisin' in the atl": 1, 
+            "cruisin' in the atl": 1, 
+            "in the atl": 1, 
+            "the atl": 1
+        }, 
+        "6": {
+            "": 14, 
+            "atl": 1, 
+            "atl cruisin' in the atl": 1, 
+            "cruisin' in the atl": 1, 
+            "in the atl": 1, 
+            "the atl": 1
+        }, 
+        "7": {
+            "": 13, 
+            "atl": 1, 
+            "atl cruisin' in the atl": 1, 
+            "cruisin' in the atl": 1, 
+            "in the atl": 1, 
+            "the atl": 1
+        }, 
+        "8": {
+            "": 12, 
+            "atl": 1, 
+            "atl cruisin' in the atl": 1, 
+            "cruisin' in the atl": 1, 
+            "in the atl": 1, 
+            "the atl": 1
+        }
+    }, 
+    "song_title": "Cruisin' In The ATL (Interlude)", 
+    "total_words": [
+        5, 
+        {
+            "atl": 2, 
+            "cruisin'": 1, 
+            "in": 1, 
+            "the": 1
+        }
+    ], 
+    "unique_words": [
+        4, 
+        [
+            "atl", 
+            "cruisin'", 
+            "the", 
+            "in"
+        ]
+    ], 
+    "year": 2000
+}

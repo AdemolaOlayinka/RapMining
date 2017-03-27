@@ -12,10 +12,10 @@ def readFile(filename):
 	file = open("../txt_files/" + filename)
 	lines = []
 	for line in file:
-		line = line.strip().lower().split()
+		line = line.strip().split()
 		lines.append(line)
 	file.close()
-	artist = " ".join(lines[0])
+	artist = " ".join(lines[0]).replace(".", "")
 	album =  " ".join(lines[1])
 	year = ""
 	lyrics = []
@@ -42,6 +42,12 @@ def writeJsonSong(artist, album, filename, data):
 
 def writeJsonTotal(data):
 	directory = "../overall_data/data.json"
+	if not os.path.exists(os.path.dirname(directory)):
+	    try:
+	        os.makedirs(os.path.dirname(directory))
+	    except OSError as exc: # Guard against race condition
+	        if exc.errno != errno.EEXIST:
+	            raise
 	with open(directory, 'w') as outfile:
 		json.dump(data, outfile, indent=4, sort_keys=True)
 	return
@@ -59,14 +65,14 @@ def writeLyrics(artist, album, filename):
 def getUnique(lines):
 	uniqueSet = set([])
 	for line in lines:
-		newSet = set(" ".join(line).replace("\n", " ").replace("!", "").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "").split())
+		newSet = set(" ".join(line).lower().replace("\n", " ").replace("!", "").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "").replace(";", "").replace(":", "").split())
 		uniqueSet = uniqueSet | newSet
 	return (len(uniqueSet), list(uniqueSet))
 
 
 def countEachWord(lyrics):
-	lyrics = joinLyrics(lyrics)
-	my_lyrics = lyrics.replace("!", "").replace("\n", " ").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "")
+	lyrics = joinLyrics(lyrics).lower()
+	my_lyrics = lyrics.replace("!", "").replace("\n", " ").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "").replace(";", "").replace(":", "")
 	my_lyrics = my_lyrics.split()
 	total = len(my_lyrics)
 	my_word_counts = {}
@@ -89,8 +95,8 @@ def getSongTitle(name, album, artist):
 	return filename
 
 def getNGrams(lyrics):
-	stringLyrics = joinLyrics(lyrics)
-	stringLyrics = stringLyrics.replace("!", "").replace("\n", " ").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "")
+	stringLyrics = joinLyrics(lyrics).lower()
+	stringLyrics = stringLyrics.replace("!", "").replace("\n", " ").replace("?", "").replace("(", "").replace(")", "").replace(".", "").replace("\"", "").replace(";", "").replace(":", "")
 	splitLyrics = stringLyrics.split()
 	grams = {}
 	for i in range(2, 9):

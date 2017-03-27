@@ -1,0 +1,94 @@
+{
+    "album": "Yo! Bum Rush The Show", 
+    "artist": "Public Enemy", 
+    "lyrics": "Terminator X Speaks With His Hands...\n", 
+    "ngrams": {
+        "2": {
+            "": 27, 
+            "hands": 1, 
+            "his hands": 1, 
+            "speaks with": 1, 
+            "terminator x": 1, 
+            "with his": 1, 
+            "x speaks": 1
+        }, 
+        "3": {
+            "": 26, 
+            "hands": 1, 
+            "his hands": 1, 
+            "speaks with his": 1, 
+            "terminator x speaks": 1, 
+            "with his hands": 1, 
+            "x speaks with": 1
+        }, 
+        "4": {
+            "": 25, 
+            "hands": 1, 
+            "his hands": 1, 
+            "speaks with his hands": 1, 
+            "terminator x speaks with": 1, 
+            "with his hands": 1, 
+            "x speaks with his": 1
+        }, 
+        "5": {
+            "": 24, 
+            "hands": 1, 
+            "his hands": 1, 
+            "speaks with his hands": 1, 
+            "terminator x speaks with his": 1, 
+            "with his hands": 1, 
+            "x speaks with his hands": 1
+        }, 
+        "6": {
+            "": 23, 
+            "hands": 1, 
+            "his hands": 1, 
+            "speaks with his hands": 1, 
+            "terminator x speaks with his hands": 1, 
+            "with his hands": 1, 
+            "x speaks with his hands": 1
+        }, 
+        "7": {
+            "": 22, 
+            "hands": 1, 
+            "his hands": 1, 
+            "speaks with his hands": 1, 
+            "terminator x speaks with his hands": 1, 
+            "with his hands": 1, 
+            "x speaks with his hands": 1
+        }, 
+        "8": {
+            "": 21, 
+            "hands": 1, 
+            "his hands": 1, 
+            "speaks with his hands": 1, 
+            "terminator x speaks with his hands": 1, 
+            "with his hands": 1, 
+            "x speaks with his hands": 1
+        }
+    }, 
+    "song_title": "Terminator X Speaks With His Hands", 
+    "total_words": [
+        6, 
+        {
+            "hands": 1, 
+            "his": 1, 
+            "speaks": 1, 
+            "terminator": 1, 
+            "with": 1, 
+            "x": 1
+        }
+    ], 
+    "unique_words": [
+        6, 
+        [
+            "his", 
+            "terminator", 
+            "hands", 
+            "x", 
+            "speaks", 
+            "with"
+        ]
+    ], 
+    "year": 1987
+}

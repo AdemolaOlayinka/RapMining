@@ -1,0 +1,123 @@
+{
+    "album": "Speakerboxxx / The Love Below", 
+    "artist": "Outkast", 
+    "lyrics": "This is a test\nSpeakerboxxx\nSpeakerboxxx\nSpeakerboxxx\nThis is a test\nSpeakerboxxx\n", 
+    "ngrams": {
+        "2": {
+            "": 68, 
+            "a test": 2, 
+            "is a": 2, 
+            "speakerboxxx": 1, 
+            "speakerboxxx speakerboxxx": 2, 
+            "speakerboxxx this": 1, 
+            "test speakerboxxx": 2, 
+            "this is": 2
+        }, 
+        "3": {
+            "": 67, 
+            "a test speakerboxxx": 2, 
+            "is a test": 2, 
+            "speakerboxxx": 1, 
+            "speakerboxxx speakerboxxx speakerboxxx": 1, 
+            "speakerboxxx speakerboxxx this": 1, 
+            "speakerboxxx this is": 1, 
+            "test speakerboxxx": 1, 
+            "test speakerboxxx speakerboxxx": 1, 
+            "this is a": 2
+        }, 
+        "4": {
+            "": 66, 
+            "a test speakerboxxx": 1, 
+            "a test speakerboxxx speakerboxxx": 1, 
+            "is a test speakerboxxx": 2, 
+            "speakerboxxx": 1, 
+            "speakerboxxx speakerboxxx speakerboxxx this": 1, 
+            "speakerboxxx speakerboxxx this is": 1, 
+            "speakerboxxx this is a": 1, 
+            "test speakerboxxx": 1, 
+            "test speakerboxxx speakerboxxx speakerboxxx": 1, 
+            "this is a test": 2
+        }, 
+        "5": {
+            "": 65, 
+            "a test speakerboxxx": 1, 
+            "a test speakerboxxx speakerboxxx speakerboxxx": 1, 
+            "is a test speakerboxxx": 1, 
+            "is a test speakerboxxx speakerboxxx": 1, 
+            "speakerboxxx": 1, 
+            "speakerboxxx speakerboxxx speakerboxxx this is": 1, 
+            "speakerboxxx speakerboxxx this is a": 1, 
+            "speakerboxxx this is a test": 1, 
+            "test speakerboxxx": 1, 
+            "test speakerboxxx speakerboxxx speakerboxxx this": 1, 
+            "this is a test speakerboxxx": 2
+        }, 
+        "6": {
+            "": 64, 
+            "a test speakerboxxx": 1, 
+            "a test speakerboxxx speakerboxxx speakerboxxx this": 1, 
+            "is a test speakerboxxx": 1, 
+            "is a test speakerboxxx speakerboxxx speakerboxxx": 1, 
+            "speakerboxxx": 1, 
+            "speakerboxxx speakerboxxx speakerboxxx this is a": 1, 
+            "speakerboxxx speakerboxxx this is a test": 1, 
+            "speakerboxxx this is a test speakerboxxx": 1, 
+            "test speakerboxxx": 1, 
+            "test speakerboxxx speakerboxxx speakerboxxx this is": 1, 
+            "this is a test speakerboxxx": 1, 
+            "this is a test speakerboxxx speakerboxxx": 1
+        }, 
+        "7": {
+            "": 63, 
+            "a test speakerboxxx": 1, 
+            "a test speakerboxxx speakerboxxx speakerboxxx this is": 1, 
+            "is a test speakerboxxx": 1, 
+            "is a test speakerboxxx speakerboxxx speakerboxxx this": 1, 
+            "speakerboxxx": 1, 
+            "speakerboxxx speakerboxxx speakerboxxx this is a test": 1, 
+            "speakerboxxx speakerboxxx this is a test speakerboxxx": 1, 
+            "speakerboxxx this is a test speakerboxxx": 1, 
+            "test speakerboxxx": 1, 
+            "test speakerboxxx speakerboxxx speakerboxxx this is a": 1, 
+            "this is a test speakerboxxx": 1, 
+            "this is a test speakerboxxx speakerboxxx speakerboxxx": 1
+        }, 
+        "8": {
+            "": 62, 
+            "a test speakerboxxx": 1, 
+            "a test speakerboxxx speakerboxxx speakerboxxx this is a": 1, 
+            "is a test speakerboxxx": 1, 
+            "is a test speakerboxxx speakerboxxx speakerboxxx this is": 1, 
+            "speakerboxxx": 1, 
+            "speakerboxxx speakerboxxx speakerboxxx this is a test speakerboxxx": 1, 
+            "speakerboxxx speakerboxxx this is a test speakerboxxx": 1, 
+            "speakerboxxx this is a test speakerboxxx": 1, 
+            "test speakerboxxx": 1, 
+            "test speakerboxxx speakerboxxx speakerboxxx this is a test": 1, 
+            "this is a test speakerboxxx": 1, 
+            "this is a test speakerboxxx speakerboxxx speakerboxxx this": 1
+        }
+    }, 
+    "song_title": "Outkast Speakerboxxx  The Love Below Speakerboxxx (Intro)", 
+    "total_words": [
+        12, 
+        {
+            "a": 2, 
+            "is": 2, 
+            "speakerboxxx": 4, 
+            "test": 2, 
+            "this": 2
+        }
+    ], 
+    "unique_words": [
+        5, 
+        [
+            "a", 
+            "test", 
+            "this", 
+            "is", 
+            "speakerboxxx"
+        ]
+    ], 
+    "year": 2003
+}
