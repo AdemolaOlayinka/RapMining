@@ -123,14 +123,34 @@ def processData():
 			songDict["total_words"] = countEachWord(lyrics)
 	 		songDict["artist"] = artist
 	    		writeLyrics(artist, album, filename)
-	    		songDict["ngrams"] = getNGrams(lyrics)
-	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
+	    		#songDict["ngrams"] = getNGrams(lyrics)
+	    		#writeJsonSong(artist, album, filename.strip(".txt"), songDict)
 	    	if(songDict):
 	    		totalData.append(songDict)
-	writeJsonTotal(totalData)
+	#writeJsonTotal(totalData)
 
 def main():
 	processData()
+	separateByCursesWords()
+
+def separateByCursesWords():
+	curses = ["fuck", " ass ", "asshole", "cunt", "shit", "pussy", "bitch", "cum", "dick", "cock", "tits"]
+	withCurses = set([])
+	withoutCurses = set([])
+	for song in totalData:
+		lyrics = song["lyrics"].replace("\n", " ")
+		hasCurse = False
+		for word in curses:
+			if word in lyrics:
+				withCurses.add(song["song_title"])
+				hasCurse = True
+		if not hasCurse:
+			withCurses.add(song["song_title"])
+	print withCurses
+	print withoutCurses
+
+
+
 
 
 if __name__ == '__main__':
