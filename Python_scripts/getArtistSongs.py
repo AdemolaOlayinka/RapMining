@@ -20,11 +20,19 @@ proxyList = ['12.129.82.194:8080', '218.191.247.51:8380', '207.188.73.155:80', '
 users = []
 i = 0
 
+editAlbums = ['Distant Relatives', 'Makaveli Vs. Mathers 2', 'What A Time To Be Alive', 'Watch The Throne', 'The Abstract And The Dragon', 'Unfinished Business', 'Catastrophic', 'The Best Of Both Worlds', "Merry Christmas Lil' Mama", 'Cruel Summer', 'Catastrophic 2', 'Reincarnated', 'Mac &amp; Devin Go To High School', 'Like Father, Like Son', 'Dedication 4', '7 Days Of Funk', 'Collision Course']
+albumYears = [2010, 2011, 2015, 2011, 2014, 2004, 2012, 2002, 2016, 2012, 2014, 2013, 2011, 2006, 2012, 2013, 2004]
+newYearsDict = {}
+
 def getUsers():
 	f = open('fakeUserList.txt', 'r')
 	for line in f:
 		line = line.strip()
 		users.append(line)
+
+def getEditAlbums():
+	for (album, year) in zip(editAlbums, albumYears):
+		newYearsDict[album] = str(year)
 
 def makeRandomUser():
 	fakeUser = random.choice(users)
@@ -104,7 +112,11 @@ def getAlbums(artistName, fullURL):
 		#print songLyrics
 		writeToFile(artistName, sName, aName, songLyrics, aYear)
 		print "Wrote song", songName
-		time.sleep(random.randint(6, 11))
+		FACTOR_TO_SLEEP = 100.0
+		majorSeconds = random.randint(15, 40)
+		minorSeconds = (1/FACTOR_TO_SLEEP) * random.randint(1, int(FACTOR_TO_SLEEP))
+		totalSeconds = majorSeconds + minorSeconds
+		time.sleep(totalSeconds)
 
 	for x in albumList:
 		info = x.strip("album: ").split("\n")
@@ -171,6 +183,32 @@ def readArtists(filename):
 			print "ARTIST", artistName, "FAILED. RE-ADDED TO QUEUE"
 			artistWaitQueue.put((artistName, artistURL))
 
+def reMakeWithYear():
+	getEditAlbums()
+	for subdir, dirs, files in os.walk(toSaveBeginning):
+		for f in files:
+			for album in editAlbums:
+				if album in f:
+					print album
+					dirLoc = subdir + f
+					oldDoc = open(dirLoc, 'r')
+					newName = dirLoc+"2"
+					newSave = open(newName, 'w')
+					i = 0
+					for line in oldDoc:
+						i += 1
+						if i == 3:
+							newSave.write(newYearsDict[album])
+							newSave.write('\n')
+							continue
+						newSave.write(line)
+					newSave.close()
+					os.rename(newName, dirLoc)
+					# os.remove(newName)
+					break
+
+
+
 def main():
 	# artistName = raw_input("AZ Name")
 	getUsers()
@@ -180,3 +218,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
+	# reMakeWithYear()
