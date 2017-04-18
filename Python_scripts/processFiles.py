@@ -17,12 +17,14 @@ def readFile(filename):
 	file.close()
 	artist = " ".join(lines[0]).replace(".", "")
 	album =  " ".join(lines[1])
-	year = ""
+	year = 0
 	lyrics = []
 	try:
 		year = int("".join(lines[2]).replace(")", ""))
 		lyrics = lines[3:]
 	except:
+		print filename
+		lines[2] = "".join(lines[2]).replace(")", "").split()
 		lyrics = lines[2:]
 	
 	return artist, album, year, lyrics
@@ -123,15 +125,15 @@ def processData():
 			songDict["total_words"] = countEachWord(lyrics)
 	 		songDict["artist"] = artist
 	    		writeLyrics(artist, album, filename)
-	    		#songDict["ngrams"] = getNGrams(lyrics)
-	    		#writeJsonSong(artist, album, filename.strip(".txt"), songDict)
+	    		songDict["ngrams"] = getNGrams(lyrics)
+	    		writeJsonSong(artist, album, filename.strip(".txt"), songDict)
 	    	if(songDict):
 	    		totalData.append(songDict)
-	#writeJsonTotal(totalData)
+	writeJsonTotal(totalData)
 
 def main():
 	processData()
-	separateByCursesWords()
+	#separateByCursesWords()
 
 def separateByCursesWords():
 	curses = ["fuck", " ass ", "asshole", "cunt", "shit", "pussy", "bitch", "cum", "dick", "cock", "tits"]
