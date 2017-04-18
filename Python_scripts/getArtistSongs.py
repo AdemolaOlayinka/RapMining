@@ -20,8 +20,8 @@ proxyList = ['12.129.82.194:8080', '218.191.247.51:8380', '207.188.73.155:80', '
 users = []
 i = 0
 
-editAlbums = ['Distant Relatives', 'Makaveli Vs. Mathers 2', 'What A Time To Be Alive', 'Watch The Throne', 'The Abstract And The Dragon', 'Unfinished Business', 'Catastrophic', 'The Best Of Both Worlds', "Merry Christmas Lil' Mama", 'Cruel Summer', 'Catastrophic 2', 'Reincarnated', 'Mac &amp; Devin Go To High School', 'Like Father, Like Son', 'Dedication 4', '7 Days Of Funk', 'Collision Course']
-albumYears = [2010, 2011, 2015, 2011, 2014, 2004, 2012, 2002, 2016, 2012, 2014, 2013, 2011, 2006, 2012, 2013, 2004]
+editAlbums = ['Catastrophic', 'Catastrophic 2']
+albumYears = [2012, 2014]
 newYearsDict = {}
 
 def getUsers():
@@ -123,6 +123,8 @@ def getAlbums(artistName, fullURL):
 		albumInfo = re.sub(r'<.*?>', '', info[0]) #info[0].strip("</div>").replace("</b>", "").replace("<b>", "").replace('"', '').replace('b>', '')
 		print albumInfo
 		albumName = albumInfo.split('"')[1]
+		if albumName != 'Catastrophic 2':
+			continue
 		print "Starting print of", albumName
 		albumYear = albumInfo.split('(')[-1][:-1]
 		for y in info[1:-2]:
@@ -212,10 +214,11 @@ def reMakeWithYear():
 def main():
 	# artistName = raw_input("AZ Name")
 	getUsers()
-	#getAlbums('Eminem')
-	readArtists('azMap.csv')
+	# #getAlbums('Eminem')
+	# readArtists('azMap.csv')
+	getAlbums('Busta Rhymes', 'http://www.azlyrics.com/b/busta.html')
 	return
 
 if __name__ == '__main__':
-	main()
-	# reMakeWithYear()
+	# main()
+	reMakeWithYear()
