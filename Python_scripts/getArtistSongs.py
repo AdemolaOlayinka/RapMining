@@ -20,8 +20,8 @@ proxyList = ['12.129.82.194:8080', '218.191.247.51:8380', '207.188.73.155:80', '
 users = []
 i = 0
 
-editAlbums = ['Catastrophic', 'Catastrophic 2']
-albumYears = [2012, 2014]
+editAlbums = ['Makaveli Vs Mathers 2']
+albumYears = [2011]
 newYearsDict = {}
 
 def getUsers():
