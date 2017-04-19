@@ -123,8 +123,6 @@ def getAlbums(artistName, fullURL):
 		albumInfo = re.sub(r'<.*?>', '', info[0]) #info[0].strip("</div>").replace("</b>", "").replace("<b>", "").replace('"', '').replace('b>', '')
 		print albumInfo
 		albumName = albumInfo.split('"')[1]
-		if albumName != 'Catastrophic 2':
-			continue
 		print "Starting print of", albumName
 		albumYear = albumInfo.split('(')[-1][:-1]
 		for y in info[1:-2]:
@@ -216,9 +214,10 @@ def main():
 	getUsers()
 	# #getAlbums('Eminem')
 	# readArtists('azMap.csv')
-	getAlbums('Busta Rhymes', 'http://www.azlyrics.com/b/busta.html')
+	getAlbums('Ice Cube', 'http://www.azlyrics.com/i/icecube.html')
+	getAlbums('Grand Master Flash', 'http://www.azlyrics.com/g/grandmasterflashandthefuriousfive.html')
 	return
 
 if __name__ == '__main__':
-	# main()
-	reMakeWithYear()
+	main()
+	# reMakeWithYear()
