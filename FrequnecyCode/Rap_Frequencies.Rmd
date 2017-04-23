@@ -1,0 +1,142 @@
+---
+title: "Data Mining Rap"
+author: "Julia Donheiser"
+date: "4/20/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "~/Documents")
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+## Rap Analysis Project Data Cleaning
+
+# Get hit and non-hit themes
+hits <- read.csv('large_corpus_themes_hits.csv')
+nonhits <- read.csv('large_corpus_themes_not_hits.csv')
+
+# Get top 20 themes
+themes <- colnames(hits)[-1]
+
+"
+# Fill in missing data for easy merging
+hits$Year # Missing 1981, 1983, 1985
+nonhits$Year
+
+v1 <- c(1981, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA)
+v2 <- c(1983, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA)
+v3 <- c(1985, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA)
+
+hits[35,] <- v1
+hits[36,] <- v2
+hits[37,] <- v3
+
+hits <- arrange(hits, Year)
+nonhits <- arrange(nonhits, Year)
+"
+
+# Merge hit and non-hit data
+# May only do this later on
+
+## Cleaning up our own data
+
+# Get data
+topics <- read.csv('topic_model_counts.csv')
+
+# Get quick summary of active years
+years <- topics %>%
+  group_by(Artist) %>%
+  summarise(start = min(Year), end = max(Year))
+
+colnames(years) <- c("artist", "start", "end")
+
+# Names for new columns
+names <- c("artist","topic","n")
+
+# Get summaries for each of top 5 topics
+top <- as.data.frame(count(group_by(topics, Artist), Top))
+sec <- as.data.frame(count(group_by(topics, Artist), Second))
+third <- as.data.frame(count(group_by(topics, Artist), Third))
+fourth <- as.data.frame(count(group_by(topics, Artist), Fourth))
+fifth <- as.data.frame(count(group_by(topics, Artist), Fifth))
+colnames(top) <- names
+colnames(sec) <- names
+colnames(third) <- names
+colnames(fourth) <- names
+colnames(fifth) <- names
+
+# Make into large dataset
+df <- bind_rows(top, sec)
+bind_rows(df, third)
+bind_rows(df, fourth)
+bind_rows(df, fifth)
+
+# Get overall summaries
+topics_final <- df %>%
+  group_by(artist, topic) %>%
+  summarise(n = n())
+
+# Take into account 0's when topic not mentioned
+for(i in years$artist) {
+  current <- subset(topics_final, artist == i) 
+  for(x in themes) {
+    mentioned <- FALSE;
+    for(z in current$topic) {
+      if(x == z) {
+        mentioned <- TRUE;
+      }
+    }
+    if(mentioned == FALSE) {
+      print("false")
+      df <- as.data.frame(c(i, x, 0))
+      bind_rows(topics_final, df)
+    }
+  }
+}
+
+# Now get total number of topics for each artist
+div <- topics_final %>%
+  group_by(artist) %>%
+  summarise(total = sum(n))
+
+# Add total counts
+topics_final <- left_join(topics_final, div, by = "artist")
+
+# Also add artists active dates
+topics_final <- left_join(topics_final, years, by = "artist")
+
+# Remove any blank data
+topics_final <- subset(topics_final, topic != "")
+
+# Get relative frequencies
+topics_final$freq <- topics_final$n/topics_final$total
+
+# Now need a list of all artists and their end years
+
+# Now we want to compare each artist
+# Over the mean relative frequency of themes
+# For hit and non-hit data
+for (i in years$artist) {
+  
+  # Go through artists and start/end date
+  start <- years$start[years$artist == i]
+  end <- years$end[years$artist == i]
+  
+  # Subset larger data
+  current <- subset(hits, Year %in% c(start:end))
+  meanFreqs <- as.data.frame(colMeans(current[sapply(current, is.numeric)]))
+  
+  # Transform artist data for GOF
+  artist_data <- subset(topics_final, artist == i)
+  artist_trimmed <- artist_data[c(2,7)]
+  artist_spread <- spread(artist_trimmed, topic, freq)
+  
+  # Run anova comparing frequencies here
+  # chisq.test(meanFreqs, artist_spread)
+}
+
+```
+
